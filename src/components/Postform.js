@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import propsTypes from 'prop-types'
 import {createPost} from '../actions/postAction'
-import store from '../store'
 
+import {Addsposts} from '../container/Addsposts'
 
 
 class Postform extends Component {
@@ -29,16 +29,12 @@ class Postform extends Component {
             title: this.state.title,
             body: this.state.body
         }
-        this.props.createPost(post);
-      
-        console.log(this.props.addpost)
-        
+        this.props.createPost(post); 
    }
 
 
   
     render() {
-        
         return (
             <div>
                 <h1>Add Post</h1>
@@ -59,12 +55,7 @@ class Postform extends Component {
                     <br />
                     
                 </form>
-                <p  value='test'>what I add:</p>
-                title:
-               { this.props.addpost.item.title}
-               <br/>
-               body:
-               { this.props.addpost.item.body}
+                <Addsposts posts={this.props.addposts}/>
             </div>
         )
     }
@@ -73,12 +64,12 @@ class Postform extends Component {
 
 Postform.propTypes = {
     createPost:propsTypes.func.isRequired,
-    addpost: propsTypes.object.isRequired
+    addposts: propsTypes.object.isRequired
 }
 
 const  mapStateToProps = state => ({
     
-    addpost: state.addpost
+    addposts: state.addpost
 })
 
 export default connect(mapStateToProps,{createPost})(Postform)

@@ -14,16 +14,10 @@ export const fetchPosts = () =>dispatch => {
 }
 
 export const createPost = (postData) =>dispatch => {
-    
-    
-
-        //console.log(post)
-        dispatch({
-            type: NEW_POST,
-            payload: postData
-        })
-   
-
+    dispatch({
+        type: NEW_POST,
+        payload: postData
+    }) 
 
 }
 

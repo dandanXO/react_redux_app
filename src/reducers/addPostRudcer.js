@@ -6,12 +6,14 @@ const initialState = {
 }
 
 export default function(state = initialState, action) {
-    //console.log('rudtest')
+    console.log(state.items)
     switch(action.type){
         case NEW_POST:
+            state.items.push(action.payload)
             return{
                 ...state,
-                item:action.payload
+                item:action.payload,
+               
             }
 
         default:
